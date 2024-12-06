@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn HTML Basics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #0e0b0b;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 3px;
+      background-color: #ffd1dc;
+      font-family: Timesnew roman ; 
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .hero-images {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .hero-images img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #723b3b;
+      border-radius: 5px;
+      font-size: 1.1em;
+    }
+
+    button {
+      background-color: #b73c7b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #070405;
+    }
+
+    .output {
+      margin-top: 20px;
+    }
+
+    .output code {
+      display: block;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #ffd1dc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⋅˚₊‧ 𐙚 ‧₊˚ ⋅ Html Guide for Beginners ⋅˚₊‧ 𐙚 ‧₊˚ ⋅</h1>
+    <div class="hero-images">
+      <img src="https://i.pinimg.com/736x/61/ec/58/61ec584b5aab54f886da37a771819ada.jpg" alt="HTML Example 1" width="30" height="50">
+      <img src="https://i.pinimg.com/736x/3a/f7/fd/3af7fdc1bd041b9ae40bde4aac1b6ac6.jpg" alt="HTML Example 2">
+      <img src="https://i.pinimg.com/736x/df/fc/4e/dffc4e75d415178f53adada06864b6fd.jpg" alt="HTML Example 3">
+    </div>
+  </header>
+  <main>
+    <label for="topic">Select an HTML topic:</label>
+    <select id="topic">
+      <option value="headings">Headings</option>
+      <option value="paragraphs">Paragraphs</option>
+      <option value="links">Links</option>
+      <option value="images">Images</option>
+      <option value="lists">Lists</option>
+      <option value="tables">Tables</option>
+      <option value="forms">Forms</option>
+      <option value="semantic">Semantic Elements</option>
+      <option value="multimedia">Multimedia</option>
+      <option value="attributes">Attributes</option>
+      <option value="entities">HTML Entities</option>
+      <option value="meta">Meta Tags</option>
+      <option value="canvas">Canvas</option>
+      <option value="svg">SVG</option>
+      <option value="global">Global Attributes</option>
+    </select>
+    <button onclick="generateContent()">Show Example</button>
+    <div class="output" id="output"></div>
+  </main>
+  <footer> 
+    <p>&copy; 2024 Learn HTML Portal</p>
+    <div class="social-links">
+      <a href="https://github.com/sanyasukhyani" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/sanya-sukhyani-b22549325" target="_blank">LinkedIn</a>
+      <a href="https://instagram.com/sanya_sukhyani13" target="_blank">Instagram</a>
+    </div>
+  </footer>
+  <script>
+    const data = {
+      headings: {
+        code: `
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>`,
+        explanation: "Headings define the structure of a webpage, ranging from <h1> (most important) to <h6> (least important)."
+      },
+      paragraphs: {
+        code: `
+<p>This is a paragraph of text.</p>
+<p>Another paragraph with more information.</p>`,
+        explanation: "Paragraphs are used to organize text content in a readable format."
+      },
+      links: {
+        code: `
+<a href="https://example.com">Visit Example</a>`,
+        explanation: "Links connect your webpage to other pages or resources."
+      },
+      images: {
+        code: `
+<img src="https://www.investopedia.com/thmb/33J47lYaGMBV4nx8vdJNtHBv3cY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/html.asp-final-86da30eff12f46f3a1394efb0b137103.png" alt="Placeholder Image" width=260 height=230>`,
+        explanation: "Images enhance your webpage by displaying visuals using the <img> tag."
+      },
+      lists: {
+        code: `
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>`,
+        explanation: "Lists can be ordered (<ol>) or unordered (<ul>)."
+      },
+      tables: {
+        code: `
+<table border="1">
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Data 1</td>
+    <td>Data 2</td>
+  </tr>
+</table>`,
+        explanation: "Tables organize data into rows and columns."
+      },
+      forms: {
+        code: `
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  <input type="submit" value="Submit">
+</form>`,
+        explanation: "Forms collect user input with fields like text boxes and buttons."
+      },
+      semantic: {
+        code: `
+<header>Site Header</header>
+<section>Main Content</section>
+<footer>Footer Content</footer>`,
+        explanation: "Semantic elements provide meaningful structure to your webpage."
+      },
+      multimedia: {
+        code: `
+<video controls>
+  <source src="movie.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>`,
+        explanation: "Multimedia elements like <audio> and <video> embed rich media into webpages."
+      },
+      attributes: {
+        code: `
+<p id="para" class="text">This is a paragraph with attributes.</p>`,
+        explanation: "Attributes add properties to HTML elements, like id, class, and style."
+      },
+      entities: {
+        code: `
+<p>&lt; represents a less-than symbol.</p>`,
+        explanation: "HTML entities represent special characters in HTML."
+      },
+      meta: {
+        code: `
+<meta name="viewport" content="width=device-width, initial-scale=1.0">`,
+        explanation: "Meta tags provide metadata about the HTML document for browsers and search engines."
+      },
+      canvas: {
+        code: `
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>`,
+        explanation: "The <canvas> element is used to draw graphics on the fly via scripting."
+      },
+      svg: {
+        code: `
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+</svg>`,
+        explanation: "SVG is used for scalable vector graphics."
+      },
+      global: {
+        code: `
+<p contenteditable="true">Edit this text!</p>`,
+        explanation: "Global attributes apply to almost all HTML elements, like contenteditable and hidden."
+      }
+    };
+
+    function generateContent() {
+      const topic = document.getElementById('topic').value;
+      const output = document.getElementById('output');
+      
+      if (data[topic]) {
+        const { code, explanation } = data[topic];
+        output.innerHTML = `
+          <h2>${topic.charAt(0).toUpperCase() + topic.slice(1)}</h2>
+          <h3>Code:</h3>
+          <code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>
+          <h3>Explanation:</h3>
+          <p>${explanation}</p>
+          <h3>Live Preview:</h3>
+          <iframe srcdoc="${code.replace(/"/g, '&quot;')}"></iframe>
+        `;
+      } else {
+        output.innerHTML = '<p style="color: red;">Topic not found. Please select a valid topic.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
